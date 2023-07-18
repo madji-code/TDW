@@ -1,0 +1,31 @@
+{% extends "./model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'vente/css/view-objects.css' %}">
+{% endblock %}
+
+{% block title %}
+    Objects
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-medium">
+            <div class="container-objects">
+                <a href="{% url 'view-this-object' id=1 %}">
+                    <div class="object-table">
+                        <div class="object-top"></div>
+                        <div class="object-middle"></div>
+                        <div class="object-bottom"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'vente/js/view-objects.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vente/css/model.css' %}">
+    {% block source %}
+    {% endblock %}
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <div class="container-large">
+            <div class="logo">
+                <h1>
+                    <span id="T">3</span>
+                    <span id="D">D</span>
+                    <span id="W">W</span>
+                </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'view-objects' %}">Acceuil</a>
+                    </li>
+                    <li>
+                        <a href="">Panier</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="container-large">
+            <div class="logo">
+                <h1>
+                    <span id="T">3</span>
+                    <span id="D">D</span>
+                    <span id="W">W</span>
+                </h1>
+            </div>
+            <div class="policy">
+                <h4>Droits d'auteur</h4>
+                <h4>*</h4>
+                <h4>Conditions d'utilisation</h4>
+            </div>
+        </div>
+    </footer>
+
+    {% block script %}
+    {% endblock %}
+    
+</body>
+</html>

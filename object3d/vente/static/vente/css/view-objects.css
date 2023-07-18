@@ -1,0 +1,12 @@
+.container-objects {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.object-table {
+  height: 20em;
+  width: 17em;
+  border: 2px solid black;
+  margin: 2em;
+}/*# sourceMappingURL=view-objects.css.map */
