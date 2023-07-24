@@ -25,20 +25,49 @@ a {
   color: rgb(165, 165, 14);
 }
 
-header {
-  border: 2px solid black;
-}
 header div {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+}
+header div nav {
+  height: 6em;
 }
 header div nav ul {
   display: flex;
+  align-items: flex-start;
+  height: 100%;
 }
 header div nav ul li {
   list-style: none;
   margin: 0 2em;
+}
+header div nav ul .simple-li {
+  border: 2px solid rgba(255, 255, 255, 0);
+  padding: 0.4em 0.7em;
+}
+header div nav ul .container-connexion {
+  width: 9.5em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 1em 1em;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+header div nav ul .container-connexion .container-inline {
+  background-color: lightblue;
+  padding: 0.4em 0.7em;
+  border: 2px solid black;
+  border-radius: 5em;
+}
+header div nav ul .container-connexion .container-inline .chevron-down-solid {
+  height: 1.2em;
+  margin-left: 1em;
+  cursor: pointer;
+}
+header div nav ul .container-connexion .create {
+  display: none;
+  border: 2px solid rgba(255, 255, 255, 0);
+  padding: 0.4em 0.7em;
 }
 
 footer {

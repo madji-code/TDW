@@ -1,0 +1,78 @@
+{% extends "./model.html" %}
+{% load static %}
+
+
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'vente/css/create-account.css' %}">
+{% endblock %}
+
+{% block title %}
+    Create account
+{% endblock %}
+
+{% block content %}
+    <section class="center">
+        <div class="container-medium">
+            <form action="{% url 'create-account' %}" method="post">
+                {% csrf_token %}
+                
+                <div class="secone">
+                    
+                    
+                        <div class="fieldWrapper">
+                            
+                            <div class="left">
+                                {% for field in form %}
+                                {% if field.name in "lastname firstname email phone" %}
+                                {{ field.label_tag }}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="right">
+                                {% for field in form %}
+                                {% if field.name in "lastname firstname email phone" %}
+                                {{ field }}
+                                {{ field.errors }}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    
+                </div>
+            
+
+                <div class="sectwo">
+                    <div class="fieldWrapper">
+                        {{ field.errors }}
+                        <div class="left">
+                            {% for field in form %}
+                            {% if field.name in "username password rpassword" %}
+                            {{ field.label_tag }}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="right">
+                            {% for field in form %}
+                            {% if field.name in "username password rpassword" %}
+                            {{ field }}
+                            {{ field.errors }}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            
+                <input class="submit-inp" type="submit" value="Créer votre compte">
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+

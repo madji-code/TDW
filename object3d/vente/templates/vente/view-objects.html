@@ -13,13 +13,17 @@
     <section>
         <div class="container-medium">
             <div class="container-objects">
-                <a href="{% url 'view-this-object' id=1 %}">
+                {% for object in all_objects %}
+                <a href="{% url 'view-this-object' id=object.id %}">
                     <div class="object-table">
-                        <div class="object-top"></div>
-                        <div class="object-middle"></div>
-                        <div class="object-bottom"></div>
+                        <div class="object-top">{{object.price|floatformat:2}}$ cad</div>
+                        <div class="object-middle">
+                            <img class="object-img" src="../../{{object.image}}" alt="image-photo">
+                        </div>
+                        <div class="object-bottom">{{object.name}}</div>
                     </div>
                 </a>
+                {% endfor %}
             </div>
         </div>
     </section>

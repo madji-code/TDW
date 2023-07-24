@@ -1,6 +1,93 @@
+.container-medium {
+    display: flex;
+    justify-content: center;
+}
+
 .container-object {
+    display: flex;
     border: 2px solid black;
-    height: 40em;
-    width: 80%;
-    margin: 4em auto;
+    max-height: 40em;
+    width: 90%;
+    margin: 4em;
+
+    .left, .right {
+        width: 50%;        
+    }
+
+    .left {
+        background-color: #19535F;
+        .object-img {
+            width: 100%;
+        }
+    }
+
+    .right {
+        padding: 2em;
+        overflow-y: scroll;
+
+        .object-title, .object-description, .object-dimensions {
+            margin: 1.5em 0;
+        }
+
+        .object-title {
+            display: inline-block;
+            font-size: 1.6em;
+        }
+        .object-title::after {
+            content: '';
+            display: block;
+            width: 90%;
+            height: .15em;
+            background-color: black;
+            border-radius: 5em;
+            margin: .2em auto 0;
+        }
+
+        .object-description {
+            background-color: #d3d0cb;
+            padding: 1em 2em;
+            border: .2em solid #9FB1BC;
+            h3 {
+                font-weight: 100;
+            }
+        }
+
+        .object-dimensions {}
+
+        .object-buy {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-left: 2em;
+
+            .price {
+                display: block;
+                text-transform: uppercase;
+                font-size: 2em;
+                font-weight: bold;
+            }
+
+            a {
+                display: inline-block;
+                padding: .4em .6em;
+                border: 2px solid black;
+                border-radius: 5em;
+                font-size: 1.2em;
+                margin-right: 1em;
+            }
+
+            .buy-btn {
+                background-color: #48E5C2;
+                color: #333333;
+            }
+
+            .cart-btn {
+                background-color: #F3D3BD;
+                color: #5E5E5E;
+            }
+        }
+    }
+
+    
 }

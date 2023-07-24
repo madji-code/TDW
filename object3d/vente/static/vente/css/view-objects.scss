@@ -1,12 +1,36 @@
+.container-medium {
+    display: flex;
+    justify-content: center;
+}
+
 .container-objects {
     display: flex;
-    justify-content: space-around;
+    width: 100%;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .object-table {
     height: 20em;
-    width: 17em;
+    width: 16em;
     border: 2px solid black;
     margin: 2em;
+    padding: 1em;
+    background-color: #19535F;
+    color: white;
+
+    .object-top {
+        text-transform: uppercase;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .object-img {
+        width: 100%;
+    }
+
+    .object-bottom {
+        font-weight: 300;
+        font-size: 1.2em;
+    }
 }

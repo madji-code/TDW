@@ -30,19 +30,60 @@ a {
 }
 
 header {
-    border: 2px solid black;
+    // border: 2px solid black;
     div {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         
         nav {
+            height: 6em;
             ul {
                 display: flex;
+                align-items:flex-start;
+                height: 100%;
 
                 li {
                     list-style: none;
                     margin: 0 2em;
+                    
+                }
+
+                .simple-li {
+                    border: 2px solid rgba(255, 255, 255, 0);
+                    padding: .4em .7em;
+                }
+
+                .container-connexion {
+                    width: 9.5em;
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 0 0 1em 1em;
+                    border: 2px solid rgba(255, 255, 255, 0);
+
+                    .container-inline {
+                        background-color: lightblue;
+                        padding: .4em .7em;
+                        border: 2px solid black;
+                        border-radius: 5em;
+
+                        .chevron-down-solid {
+                            height: 1.2em;
+                            margin-left: 1em;
+                            cursor: pointer;
+                        }
+
+                        .connect {
+                            // margin-bottom: 1em;
+                        }
+
+                    }
+
+                    .create {
+                        display: none;
+                        border: 2px solid rgba(255, 255, 255, 0);
+                        padding: .4em .7em;
+                }
                 }
             }
         }

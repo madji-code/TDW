@@ -16,18 +16,30 @@
         <div class="container-large">
             <div class="logo">
                 <h1>
-                    <span id="T">3</span>
-                    <span id="D">D</span>
-                    <span id="W">W</span>
+                    <a href="{% url 'home' %}">
+                        <span id="T">3</span>
+                        <span id="D">D</span>
+                        <span id="W">W</span>
+                    </a>
                 </h1>
             </div>
             <nav>
                 <ul>
-                    <li>
-                        <a href="{% url 'view-objects' %}">Acceuil</a>
+                    <li class="simple-li">
+                        <a href="{% url 'home' %}">Acceuil</a>
                     </li>
-                    <li>
-                        <a href="">Panier</a>
+                    <li class="simple-li">
+                        <a href="{% url 'view-objects' %}">Boutique</a>
+                    </li>
+                    <li class="simple-li">
+                        <a href="{% url 'panier' user_id=1 %}">Panier</a>
+                    </li>
+                    <li class="container-connexion">
+                        <div class="container-inline">
+                            <a href="{% url 'connexion' %}" class="connect">Connexion</a>
+                            <img class="chevron-down-solid" src="{% static 'vente\img\chevron-down-solid.svg' %}" alt="chevron-down">
+                        </div>
+                        <a href="{% url 'create-account' %}" class="create">Créer un compte</a>
                     </li>
                 </ul>
             </nav>
@@ -56,6 +68,7 @@
 
     {% block script %}
     {% endblock %}
+    <script  src="../..{% static 'vente\js\model.js' %}"></script>
     
 </body>
 </html>
