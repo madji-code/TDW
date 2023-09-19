@@ -1,0 +1,82 @@
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/model.css' %}">
+    {% block source %}
+    {% endblock %}
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <div class="container-large">
+            <div class="logo">
+                <h1>
+                    <a href="{% url 'mpaf:home' %}">
+                        <span id="T">3</span>
+                        <span id="D">D</span>
+                        <span id="W">W</span>
+                    </a>
+                </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="simple-li">
+                        <a href="{% url 'mpaf:home' %}">About</a>
+                    </li>
+                    <li class="container-connexion">
+                        <div class="container-inline">
+                            {% if logged_in %}
+                            <a href="{% url 'mpaf:home' %}" class="user-panel">
+                                <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'auth_admin:login_user' next=back_page %}" class="connect">
+                                Connexion
+                                <!-- <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down"> -->
+                            </a>
+                            {% endif %}
+                            <img class="chevron-down-solid" src="{% static 'sale_point\img\chevron-down-solid.svg' %}" alt="chevron-down">
+                        </div>
+                        {% if logged_in %}
+                        <a href="{% url 'auth_admin:logout_user' next=back_page %}" class="create">Déconexxion</a>
+                        {% else %}
+                        <a href="{% url 'auth_admin:register' next=back_page %}" class="create">Créer un compte</a>
+                        {% endif %}
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="container-large">
+            <div class="logo">
+                <h1>
+                    <span id="T">3</span>
+                    <span id="D">D</span>
+                    <span id="W">W</span>
+                </h1>
+            </div>
+            <div class="policy">
+                <h4>Droits d'auteur</h4>
+                <h4>*</h4>
+                <h4>Conditions d'utilisation</h4>
+            </div>
+        </div>
+    </footer>
+
+    {% block script %}
+    {% endblock %}
+    <script  src="../..{% static 'sale_point\js\model.js' %}"></script>
+    
+</body>
+</html>
