@@ -4,6 +4,21 @@ import uuid
 
 User = get_user_model()
 
+
+class Customer(models.Model):
+    # One to one relatioship with user model
+    # One to one relatioship with cart model
+    email = models.EmailField(_('email address'), unique=True)
+    full_name = models.CharField("Full name", max_length=120)
+    
+    
+class Cart(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    cart_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
+    created = models.DateTimeField(auto_now_add=True)
+    completed = models.BooleanField(default=False)
+    session_id = models.CharField(max_length=100)
+
 # Create your models here.
 class Produit(models.Model):
     name = models.CharField("Name", max_length=120)
@@ -16,10 +31,5 @@ class Produit(models.Model):
 
     def __str__(self): 
         return f"{self.name} - {self.creation_date} - {self.dimension} - {self.price}"
-    
-class Cart(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    cart_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
-    created = models.DateTimeField(auto_now_add=True)
-    completed = models.BooleanField(default=False)
-    session_id = models.CharField(max_length=100)
+
+
