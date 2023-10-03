@@ -1,0 +1,41 @@
+{% extends "./model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'sale_point/css/view-this-object.css' %}">
+{% endblock %}
+
+{% block title %}
+    Object_name
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-medium">
+            <div class="container-object">
+                <div class="left">
+                    <img class="object-img" src="../../{{this_object.image}}" alt="image-photo">
+                </div>
+                <div class="right">
+                    <div class="object-title">{{this_object.name}}</div>
+                    <div class="object-description">
+                        <h3>Description:</h3>
+                        <p>{{this_object.description}}</p>
+                    </div>
+                    <div class="object-dimensions">{{this_object.name}} - {{this_object.dimension}}</div>
+                    <div class="object-buy">
+                        <p class="price">{{this_object.price|floatformat:2}}$ cad</p>
+                        <p>
+                            <a class="buy-btn" href="">Acheter maintenant</a>
+                            <a class="cart-btn" href="">Ajouter au panier</a>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
