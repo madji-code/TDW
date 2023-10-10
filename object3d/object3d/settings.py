@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'open_source.apps.OpenSourceConfig',
     'opsl.apps.OpslConfig',
     'mpaf.apps.MpafConfig',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
