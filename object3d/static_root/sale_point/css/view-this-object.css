@@ -1,0 +1,78 @@
+.container-medium {
+  display: flex;
+  justify-content: center;
+}
+
+.container-object {
+  display: flex;
+  border: 2px solid black;
+  max-height: 40em;
+  width: 90%;
+  margin: 4em;
+}
+.container-object .left, .container-object .right {
+  width: 50%;
+}
+.container-object .left {
+  background-color: #19535F;
+}
+.container-object .left .object-img {
+  width: 100%;
+}
+.container-object .right {
+  padding: 2em;
+  overflow-y: scroll;
+}
+.container-object .right .object-title, .container-object .right .object-description, .container-object .right .object-dimensions {
+  margin: 1.5em 0;
+}
+.container-object .right .object-title {
+  display: inline-block;
+  font-size: 1.6em;
+}
+.container-object .right .object-title::after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 0.15em;
+  background-color: black;
+  border-radius: 5em;
+  margin: 0.2em auto 0;
+}
+.container-object .right .object-description {
+  background-color: #d3d0cb;
+  padding: 1em 2em;
+  border: 0.2em solid #9FB1BC;
+}
+.container-object .right .object-description h3 {
+  font-weight: 100;
+}
+.container-object .right .object-buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-left: 2em;
+}
+.container-object .right .object-buy .price {
+  display: block;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+}
+.container-object .right .object-buy a {
+  display: inline-block;
+  padding: 0.4em 0.6em;
+  border: 2px solid black;
+  border-radius: 5em;
+  font-size: 1.2em;
+  margin-right: 1em;
+}
+.container-object .right .object-buy .buy-btn {
+  background-color: #48E5C2;
+  color: #333333;
+}
+.container-object .right .object-buy .cart-btn {
+  background-color: #F3D3BD;
+  color: #5E5E5E;
+}/*# sourceMappingURL=view-this-object.css.map */
