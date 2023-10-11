@@ -32,11 +32,40 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'mpaf:home' %}">Acceuil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="{% url 'sale_point:view-products' %}">Boutique</a>
                         </li>
+
+                        {% if logged_in %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'sale_point:panier' %}">Panier</a>
+                            </li>
+                        {% endif %}
+
+                        <li class="nav-item container-connexion">
+                            <div class="container-inline">
+                                {% if logged_in %}
+                                <a href="{% url 'mpaf:home' %}" class="user-panel">
+                                    <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'auth_admin:login_user' next=back_page %}" class="connect">
+                                    Connexion
+                                    < <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down"> --
+                                </a>
+                                {% endif %}
+                                <img class="chevron-down-solid" src="{% static 'sale_point\img\chevron-down-solid.svg' %}" alt="chevron-down">
+                            </div>
+                            
+                            {% if logged_in %}
+                            <a href="{% url 'auth_admin:logout_user' next=back_page %}" class="create">Déconexxion</a>
+                            {% else %}
+                            <a href="{% url 'auth_admin:register' next=back_page %}" class="create">Créer un compte</a>
+                            {% endif %}
+                        </li>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown
@@ -60,57 +89,6 @@
                 </div>
             </div>
         </nav>
-
-
-        <!-- <div class="container-large">
-            <div class="logo">
-                <h1>
-                    <a class="navbar-brand" href="{% url 'mpaf:home' %}">
-                        <span id="T">3</span>
-                        <span id="D">D</span>
-                        <span id="W">W</span>
-                    </a>
-                </h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="simple-li">
-                        <a href="{% url 'mpaf:home' %}">Acceuil</a>
-                    </li>
-                    <li class="simple-li">
-                        <a href="{% url 'sale_point:view-products' %}">Boutique</a>
-                    </li>
-                    {% if logged_in %}
-                    <li class="simple-li">
-                        <a href="{% url 'sale_point:panier' %}">Panier</a>
-                    </li>
-                    {% endif %}
-                    <li class="container-connexion">
-                        <div class="container-inline">
-                            {% if logged_in %}
-                            <a href="{% url 'mpaf:home' %}" class="user-panel">
-                                <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'auth_admin:login_user' next=back_page %}" class="connect">
-                                Connexion
-                                < <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down"> --
-                            </a>
-                            {% endif %}
-                            <img class="chevron-down-solid" src="{% static 'sale_point\img\chevron-down-solid.svg' %}" alt="chevron-down">
-                        </div>
-                        {% if logged_in %}
-                        <a href="{% url 'auth_admin:logout_user' next=back_page %}" class="create">Déconexxion</a>
-                        {% else %}
-                        <a href="{% url 'auth_admin:register' next=back_page %}" class="create">Créer un compte</a>
-                        {% endif %}
-                    </li>
-                    
-                </ul>
-            </nav>
-        </div> -->
-
-
     </header>
 
     {% block content %}
