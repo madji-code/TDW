@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+.container-fluid {
+  margin: 1em 3em;
+}
+
 .container-medium {
   margin: 1em 3em;
 }
@@ -15,59 +19,26 @@ a {
   margin: 1em 2em;
 }
 
-.logo h1 #T {
+.navbar-brand {
+  font-size: 2em;
+}
+.navbar-brand #T {
   color: rgb(142, 9, 9);
 }
-.logo h1 #D {
+.navbar-brand #D {
   color: rgb(6, 6, 142);
 }
-.logo h1 #W {
+.navbar-brand #W {
   color: rgb(165, 165, 14);
 }
 
-header div {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+.navbar-nav {
+  width: 100%;
+  justify-content: flex-end;
 }
-header div nav {
-  height: 6em;
-}
-header div nav ul {
-  display: flex;
-  align-items: flex-start;
-  height: 100%;
-}
-header div nav ul li {
-  list-style: none;
-  margin: 0 2em;
-}
-header div nav ul .simple-li {
-  border: 2px solid rgba(255, 255, 255, 0);
-  padding: 0.4em 0.7em;
-}
-header div nav ul .container-connexion {
-  width: 9.5em;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0 0 1em 1em;
-  border: 2px solid rgba(255, 255, 255, 0);
-}
-header div nav ul .container-connexion .container-inline {
-  background-color: lightblue;
-  padding: 0.4em 0.7em;
-  border: 2px solid black;
-  border-radius: 5em;
-}
-header div nav ul .container-connexion .container-inline .chevron-down-solid {
-  height: 1.2em;
-  margin-left: 1em;
-  cursor: pointer;
-}
-header div nav ul .container-connexion .create {
-  display: none;
-  border: 2px solid rgba(255, 255, 255, 0);
-  padding: 0.4em 0.7em;
+.navbar-nav li {
+  margin: 0 1em;
+  font-size: 1.1rem;
 }
 
 footer {
