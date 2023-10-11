@@ -4,14 +4,7 @@
 }
 
 .container-object {
-  display: flex;
   border: 2px solid black;
-  max-height: 40em;
-  width: 90%;
-  margin: 4em;
-}
-.container-object .left, .container-object .right {
-  width: 50%;
 }
 .container-object .left {
   background-color: #19535F;
@@ -40,6 +33,7 @@
   margin: 0.2em auto 0;
 }
 .container-object .right .object-description {
+  width: 100%;
   background-color: #d3d0cb;
   padding: 1em 2em;
   border: 0.2em solid #9FB1BC;
