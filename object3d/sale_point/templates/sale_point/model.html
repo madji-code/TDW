@@ -13,7 +13,7 @@
         {% block title %}
         {% endblock %}
     </title>
-    
+
 </head>
 <body>
     <header>
@@ -28,7 +28,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -44,39 +44,39 @@
                             </li>
                         {% endif %}
 
-                        <li class="nav-item container-connexion">
-                            
-                            
-                            {% if logged_in %}
-                            <a href="{% url 'auth_admin:logout_user' next=back_page %}" class="create">Déconexxion</a>
-                            {% else %}
-                            <a href="{% url 'auth_admin:register' next=back_page %}" class="create">Créer un compte</a>
-                            {% endif %}
-                        </li>
-                        
+                        {% if not logged_in %}
+                            <li class="nav-item">
+                                <a class="nav-link connect" href="{% url 'auth_admin:login_user' next=back_page %}">
+                                    Connexion
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if logged_in %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="container-inline">
-                                    {% if logged_in %}
-                                    <a href="{% url 'mpaf:home' %}" class="user-panel">
-                                        <img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down">
-                                    </a>
-                                    {% else %}
-                                    <a href="{% url 'auth_admin:login_user' next=back_page %}" class="connect">
-                                        Connexion
-                                    </a>
-                                    {% endif %}
-                                    <img class="chevron-down-solid" src="{% static 'sale_point\img\chevron-down-solid.svg' %}" alt="chevron-down">
-                                </div>
+                            <a class="nav-link dropdown-toggle user-panel" href="{% url 'mpaf:home' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <!--<img class="chevron-down-solid" src="{% static 'sale_point\img\user-regular.svg' %}" alt="chevron-down">-->                                    </a>
                             </a>
-                            
+
+
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                {% if logged_in %}
+                                <li>
+                                    <a class="dropdown-item create" href="{% url 'auth_admin:logout_user' next=back_page %}">Déconnexion</a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a class="dropdown-item create" href="{% url 'auth_admin:register' next=back_page %}">Créer un compte</a>
+                                </li>
+                                {% endif %}
+
+
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
@@ -114,6 +114,6 @@
     {% block script %}
     {% endblock %}
     <script  src="../..{% static 'sale_point\js\model.js' %}"></script>
-    
+
 </body>
 </html>
