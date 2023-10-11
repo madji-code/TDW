@@ -31,22 +31,22 @@ def view_products(request):
     '''- Voir tous les produits 3d'''
     all_objects = Product.objects.all()
 
-    products_list = []
-    n = 0
-    i = 0
-    print('ok')
-    for object in all_objects:
-        if n == 4:
-            n = 0
-            i += 1
-        if n > 0:
-            products_list[i].append(object)
-        else:
-            products_list.append([object])  
-        n += 1
+    # products_list = []
+    # n = 0
+    # i = 0
+    # print('ok')
+    # for object in all_objects:
+    #     if n == 4:
+    #         n = 0
+    #         i += 1
+    #     if n > 0:
+    #         products_list[i].append(object)
+    #     else:
+    #         products_list.append([object])  
+        # n += 1
         
         
-    return render(request, "sale_point/view-objects.html", {'all_objects': products_list, 'logged_in': request.user.is_authenticated, 'back_page': 'sale_point:view-products'})
+    return render(request, "sale_point/view-objects.html", {'all_objects': all_objects, 'logged_in': request.user.is_authenticated, 'back_page': 'sale_point:view-products'})
 
 
 def view_this_product(request, id):

@@ -1,18 +1,8 @@
-.container-medium {
-  padding: auto;
-}
-
-.container-4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .object-table {
   height: 16em;
   width: 12em;
   border: 2px solid black;
-  margin: 2em;
+  margin: 2em auto;
   padding: 1em;
   background-color: #19535F;
   color: white;
@@ -28,4 +18,11 @@
 .object-table .object-bottom {
   font-weight: 300;
   font-size: 1.2em;
+}
+
+@media screen and (max-width: 576px) {
+  .object-table {
+    height: 24em;
+    width: 20em;
+  }
 }/*# sourceMappingURL=view-objects.css.map */
