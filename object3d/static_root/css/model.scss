@@ -39,15 +39,32 @@ a {
     justify-content: flex-end;
 
     li {
-        margin: 0 1em;
+        margin: 0 1.5em;
         font-size: 1.1rem;
     }
+
+    .user-regular {
+        height: 1.2em;
+        margin-left: 1em;
+        cursor: pointer;
+    }
+
+    .dropdown-menu[data-bs-popper] {
+        top: 100%;
+        left: -5em;
+        margin-top: 0.125rem;
+    }
+}
+
+header {
+    margin-bottom: 4em;
 }
 
 
 // 
 
 footer {
+    margin-top: 4em;
     border: 2px solid black;
     .container-large {
         display: flex;

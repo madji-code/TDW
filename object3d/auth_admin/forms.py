@@ -6,8 +6,8 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class LoginFrom(forms.Form):
-    email_username = forms.CharField(label="Nom d'utilisateur", widget=forms.TextInput({'placeholder': 'email or username'}))
-    password = forms.CharField(label="Mot de passe", widget=forms.TextInput({'placeholder': 'RGerg&?&%652', 'type': 'password'}))
+    email_username = forms.CharField(label="Nom d'utilisateur", widget=forms.TextInput({'placeholder': 'email or username', 'class': 'form-control'}))
+    password = forms.CharField(label="Mot de passe", widget=forms.TextInput({'placeholder': 'RGerg&?&%652', 'type': 'password', 'class': 'form-control'}))
 
 
 class RegisterForm(ModelForm):
@@ -18,10 +18,10 @@ class RegisterForm(ModelForm):
         fields = ["username", "email", "password", "rpassword"] 
         
         widgets = {
-            "username": forms.TextInput(attrs={'placeholder': 'johndoe123'}),
-            "email": forms.TextInput(attrs={'placeholder': 'john.doe@example.com'}),
-            "password": forms.TextInput(attrs={'placeholder': 'secret123', 'type': 'password'}),  
-            "rpassword": forms.TextInput(attrs={'placeholder': 'Répéter le mot de passe', 'type': 'password'}), 
+            "username": forms.TextInput(attrs={'placeholder': 'johndoe123', 'class': 'form-control'}),
+            "email": forms.TextInput(attrs={'placeholder': 'john.doe@example.com', 'class': 'form-control'}),
+            "password": forms.TextInput(attrs={'placeholder': 'secret123', 'type': 'password', 'class': 'form-control'}),  
+            "rpassword": forms.TextInput(attrs={'placeholder': 'Répéter le mot de passe', 'type': 'password', 'class': 'form-control'}), 
         }
 
     def clean(self):

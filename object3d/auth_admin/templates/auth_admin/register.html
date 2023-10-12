@@ -4,7 +4,7 @@
 
 
 {% block source %}
-    <link rel="stylesheet" href="{% static 'sale_point/css/create-account.css' %}">
+    <link rel="stylesheet" href="{% static 'auth_admin/css/create-account.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -12,25 +12,15 @@
 {% endblock %}
 
 {% block content %}
-    <section class="center">
+    <section>
         <div class="container-medium">
-            <form action="{% url 'auth_admin:register' next=back_page %}" method="post">
-                {% csrf_token %}
-                    <div class="fieldWrapper">
-                        {{ field.errors }}
-                        <div class="left">
-                            {% for field in form %}
-                            {{ field.label_tag }}
-                            {% endfor %}
-                        </div>
-                        <div class="right">
-                            {% for field in form %}
-                            {{ field }}
-                            {% endfor %}
-                        </div>
-                    </div>
-                <input class="submit-inp" type="submit" value="Créer votre compte">
-            </form>
+            <div class="form-group">
+               <form action="{% url 'auth_admin:register' next=back_page %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-outline-primary" type="submit" value="Créer votre compte">
+                </form> 
+            </div>
         </div>
     </section>
 
