@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block source %}
-    <link rel="stylesheet" href="% static 'sale_point/css/panier.css' %">
+    <link rel="stylesheet" href="% static 'sale_point/css/cart.css' %">
 {% endblock %}
 
 {% block title %}
@@ -12,7 +12,9 @@
 {% block content %}
     <section>
         <div class="container-medium">
-            
+            {% for item in cart %}
+                {{item}}
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

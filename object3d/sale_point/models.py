@@ -4,6 +4,15 @@ import uuid
 
 User = get_user_model()
 
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    creation_date = models.DateTimeField(auto_now_add=True)
+
+class Cart(models.Model):
+    customer = models.OneToOneField(Customer, on_delete=models.CASCADE, null=True, blank=True)
+    session_key = models.CharField(max_length=32, blank=True, null=True)
+    products = models.ManyToManyField('Product')
+
 # Create your models here.
 class Product(models.Model):
     name = models.CharField("Name", max_length=120)
@@ -17,9 +26,3 @@ class Product(models.Model):
     def __str__(self): 
         return f"{self.name} - {self.creation_date} - {self.dimension} - {self.price}"
     
-class Cart(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    cart_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
-    created = models.DateTimeField(auto_now_add=True)
-    completed = models.BooleanField(default=False)
-    session_id = models.CharField(max_length=100)

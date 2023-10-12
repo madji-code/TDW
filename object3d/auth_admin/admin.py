@@ -4,19 +4,19 @@ from django.contrib.auth.admin import UserAdmin
 
 
 class UserAdminConfig(UserAdmin):
-    search_fields = ('email', 'username')
-    list_filter = ('email', 'username', 'is_active', 'is_staff')
+    search_fields = ('email', 'lname', 'fname')
+    list_filter = ('email', 'lname', 'fname', 'is_active', 'is_staff')
     ordering = ('-date_joined',)
-    list_display = ('email', 'username', 'is_active', 'is_staff')
+    list_display = ('email', 'lname', 'fname', 'is_active', 'is_staff')
     fieldsets = (
-        (None, {'fields': ('email', 'username',)}),
+        (None, {'fields': ('email', 'lname', 'fname',)}),
         ('Permission', {'fields': ('is_staff', 'is_active')}),
     )
     
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'password1', 'password2', 'is_staff', 'is_active',)
+            'fields': ('email', 'lname', 'fname', 'password1', 'password2', 'is_staff', 'is_active',)
             }),
     )
 

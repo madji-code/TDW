@@ -150,3 +150,11 @@ STATIC_ROOT = 'static_root'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # STRIPE_PASSWORD = '%iraTWQGrXp3XV_'
+
+# settings.py
+
+# Use the database-backed session engine for more reliability
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+
+# Set a reasonable session timeout
+SESSION_COOKIE_AGE = 3600  # 1 hour (adjust as needed)

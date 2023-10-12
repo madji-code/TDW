@@ -3,20 +3,14 @@ from django.contrib.auth.hashers import check_password
 
 class UserAuthBackend:
 
-    def authenticate(self, request, email_username=None, password=None):
+    def authenticate(self, request, email=None, password=None):
         try:
-            user = User.objects.get(email=email_username)
+            user = User.objects.get(email=email)
             if check_password(password, user.password):
                 return user
             return None
         except User.DoesNotExist:
-            try:
-                user = User.objects.get(username=email_username)
-                if check_password(password, user.password):
-                    return user
-                return None
-            except User.DoesNotExist:
-                return None
+            return None
 
     def get_user(self, user_id):
         """

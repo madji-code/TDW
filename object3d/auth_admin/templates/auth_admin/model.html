@@ -58,7 +58,11 @@
                                 {% if logged_in %}
                                 <li><a class="dropdown-item" href="#">Compte</a></li>
                                 {% else %}
-                                <li><a class="dropdown-item connect" href="{% url 'auth_admin:login_user' next=back_page %}">Connexion</a></li>
+                                <li>
+                                    <a class="dropdown-item connect" href="{% url 'auth_admin:login_user' next=back_page %}">
+                                        Connexion
+                                    </a>
+                                </li>
                                 {% endif %}
 
                                 <li><hr class="dropdown-divider"></li>

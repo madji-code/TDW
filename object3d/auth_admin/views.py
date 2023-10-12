@@ -17,12 +17,12 @@ def login_user(request, next):
     if request.method == 'POST':
         form = LoginFrom(request.POST)
         if form.is_valid():
-            email_username = form.cleaned_data.get('email_username')
+            email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
 
-            user = authenticate(request, email_username=email_username, password=password)
+            user = authenticate(request, email=email, password=password)
             if not user:
-                form._errors['email_username'] = form.error_class(["Nom d'utilisateur ou mot de passe invalid!"])
+                form._errors['email'] = form.error_class(["Email ou mot de passe invalid!"])
                 return render(
                     request, "auth_admin/login.html", 
                     {

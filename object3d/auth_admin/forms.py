@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class LoginFrom(forms.Form):
-    email_username = forms.CharField(label="Nom d'utilisateur", widget=forms.TextInput({'placeholder': 'email or username', 'class': 'form-control'}))
+    email = forms.CharField(label="Email", widget=forms.TextInput({'placeholder': 'email', 'class': 'form-control'}))
     password = forms.CharField(label="Mot de passe", widget=forms.TextInput({'placeholder': 'RGerg&?&%652', 'type': 'password', 'class': 'form-control'}))
 
 
@@ -15,10 +15,11 @@ class RegisterForm(ModelForm):
         # write the name of models for which the form is made
         model = User
 
-        fields = ["username", "email", "password", "rpassword"] 
+        fields = ["fname", "lname", "email", "password", "rpassword"] 
         
         widgets = {
-            "username": forms.TextInput(attrs={'placeholder': 'johndoe123', 'class': 'form-control'}),
+            "fname": forms.TextInput(attrs={'placeholder': 'John', 'class': 'form-control'}),
+            "lname": forms.TextInput(attrs={'placeholder': 'Doe', 'class': 'form-control'}),
             "email": forms.TextInput(attrs={'placeholder': 'john.doe@example.com', 'class': 'form-control'}),
             "password": forms.TextInput(attrs={'placeholder': 'secret123', 'type': 'password', 'class': 'form-control'}),  
             "rpassword": forms.TextInput(attrs={'placeholder': 'Répéter le mot de passe', 'type': 'password', 'class': 'form-control'}), 

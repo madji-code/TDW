@@ -3,4 +3,9 @@ p {
 }
 p .form-control {
   margin-top: 0.5em;
+}
+
+.redirect {
+  text-decoration: underline;
+  color: blue;
 }/*# sourceMappingURL=create-account.css.map */
