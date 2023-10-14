@@ -25,10 +25,14 @@
                     <div class="object-dimensions">{{this_object.name}} - {{this_object.dimension}}</div>
                     <div class="object-buy">
                         <p class="price">{{this_object.price|floatformat:2}}$ cad</p>
-                        <p>
-                            <a class="buy-btn" href="">Acheter maintenant</a>
-                            <a class="cart-btn" href="{% url 'sale_point:add-to-cart' product_id=this_object.id next='sale_point:view-products' %}">Ajouter au panier</a>
-                        </p>
+                        <div class="options">
+                            <a class="cbtn" href="">
+                                <button type="button" class="btn btn-outline-success">Acheter maintenant</button>   
+                            </a>
+                            <a class="cbtn" href="{% url 'sale_point:add-to-cart' product_id=this_object.id %}">
+                                <button type="button" class="btn btn-primary">Ajouter au panier</button>
+                            </a>
+                        </div>
                         
                     </div>
                 </div>

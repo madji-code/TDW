@@ -40,6 +40,11 @@ a {
   margin: 0 1.5em;
   font-size: 1.1rem;
 }
+.navbar-nav .fa-cart-shopping {
+  font-size: 1.5em;
+  color: black;
+  cursor: pointer;
+}
 .navbar-nav .user-regular {
   height: 1.2em;
   margin-left: 1em;

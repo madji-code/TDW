@@ -52,7 +52,6 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: flex-start;
-            margin-left: 2em;
 
             .price {
                 display: block;
@@ -61,24 +60,15 @@
                 font-weight: bold;
             }
 
-            a {
-                display: inline-block;
-                padding: .4em .6em;
-                border: 2px solid black;
-                border-radius: 5em;
-                font-size: 1.2em;
-                margin-right: 1em;
+            .options {
+                .cbtn {
+                    button {
+                        margin: 0.5em 1em 0.5em 0;
+                        font-size: 1.2em;
+                    }
+                }
             }
 
-            .buy-btn {
-                background-color: #48E5C2;
-                color: #333333;
-            }
-
-            .cart-btn {
-                background-color: #F3D3BD;
-                color: #5E5E5E;
-            }
         }
     }
 

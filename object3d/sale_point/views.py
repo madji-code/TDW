@@ -40,37 +40,12 @@ def view_this_product(request, id):
 
 
 def cart(request):
-    # Get the current session key
-    session_key = request.session.session_key
+    pass
 
-    # Check if the user is anonymous
-    if not request.user.is_authenticated and session_key is not None:
-        try:
-            cart = Cart.objects.get(session_key=session_key, customer=AnonymousUser())
-            # Display the cart for this anonymous user
-            return render(request, f"sale_point/cart.html", {'logged_in': request.user.is_authenticated, 'back_page': 'sale_point:cart', 'cart': cart,})
-        except Cart.DoesNotExist:
-            raise Http404("Cart does not exist or you don't have permission to view it.")
-    else:
-        pass# Handle cases for authenticated users (if needed)
-    return render(request, f"sale_point/cart.html", {'logged_in': request.user.is_authenticated, 'back_page': 'sale_point:cart'})
+def add_to_cart(request, product_id):
 
-def add_to_cart(request, product_id, next):
-    product = Product.objects.get(id=product_id)
-    
-    # Get the current session key
-    session_key = request.session.session_key
-    print(session_key)
+    return redirect(reverse('sale_point:add-to-cart-success', args=[product_id]))
 
-    # Check if the user is anonymous
-    if not request.user.is_authenticated and session_key is not None:
-        # Find or create a cart associated with the session key
-        cart, created = Cart.objects.get_or_create(session_key=session_key, customer=AnonymousUser())
-        cart.products.add(product)
-        cart.save()
-
-    else:
-        pass
-    
-
-    return redirect(reverse(next))
+def add_to_cart_success(request, product_id):
+    this_object = Product.objects.get(id=product_id)
+    return render(request, "sale_point/add-to-cart-success.html", {'this_object': this_object, 'logged_in': request.user.is_authenticated, 'back_page': 'sale_point:view-this-product'})
