@@ -22,11 +22,11 @@
                         <h3>Description:</h3>
                         <p>{{this_object.description}}</p>
                     </div>
-                    <div class="object-dimensions">{{this_object.name}} - {{this_object.dimension}}</div>
+                    <div class="object-dimensions">Dimension: {{this_object.dimension}}</div>
                     <div class="object-buy">
                         <p class="price">{{this_object.price|floatformat:2}}$ cad</p>
                         <div class="options">
-                            <a class="cbtn" href="">
+                            <a class="cbtn" href="{{this_object.paylink}}">
                                 <button type="button" class="btn btn-outline-success">Acheter maintenant</button>   
                             </a>
                             <a class="cbtn" href="{% url 'sale_point:add-to-cart' product_id=this_object.id %}">

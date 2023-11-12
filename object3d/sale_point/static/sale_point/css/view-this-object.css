@@ -8,9 +8,13 @@
 }
 .container-object .left {
   background-color: #19535F;
+  display: flex;
+  justify-content: center;
 }
 .container-object .left .object-img {
-  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
 }
 .container-object .right {
   padding: 2em;

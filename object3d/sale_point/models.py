@@ -1,17 +1,13 @@
 from django.db import models
+from django_mysql.models import ListCharField
 from django.contrib.auth import get_user_model
 import uuid
 
 User = get_user_model()
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    creation_date = models.DateTimeField(auto_now_add=True)
-
 class Cart(models.Model):
-    customer = models.OneToOneField(Customer, on_delete=models.CASCADE, null=True, blank=True)
-    session_key = models.CharField(max_length=32, blank=True, null=True)
-    products = models.ManyToManyField('Product')
+    # session_key = models.CharField(max_length=32, blank=True, null=True)
+    products = ListCharField(base_field=models.IntegerField(), size=None, max_length=1000000000, default=[])
 
 # Create your models here.
 class Product(models.Model):
@@ -20,9 +16,15 @@ class Product(models.Model):
     description = models.TextField("Description", max_length=1000,  default="Object description not available!")
     creation_date = models.DateTimeField(auto_now_add=True)
     price = models.FloatField('Price')
+    paylink = models.CharField("Paylink", max_length=100)
     image = models.ImageField(upload_to ='static/img/%Y/%m/%d/',
                               default="C:\\Users\\berth\\3D Objects\\3DW\\object3d\\vente\\static\\img\\2023\\07\\19\\support_main.PNG")
 
     def __str__(self): 
         return f"{self.name} - {self.creation_date} - {self.dimension} - {self.price}"
+    
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    cart = models.OneToOneField(Cart, on_delete=models.CASCADE, null=True, blank=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
     

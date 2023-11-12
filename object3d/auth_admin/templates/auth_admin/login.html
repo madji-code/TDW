@@ -17,7 +17,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <input class="btn btn-outline-primary" type="submit" value="Créer votre compte">
-                    <p><br>Vous n'avez pas de compte? <a class="redirect" href="{% url 'auth_admin:register' next=back_page %}">Créez-vous un compte.</a></p>
+                    <p><br>Vous n'avez pas de compte? <a class="redirect" href="{% url 'auth_admin:register' next='sale_point:home' %}">Créez-vous un compte.</a></p>
                 </form> 
             </div>
         </div>

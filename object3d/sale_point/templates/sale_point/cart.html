@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block source %}
-    <link rel="stylesheet" href="% static 'sale_point/css/cart.css' %">
+    <link rel="stylesheet" href="{% static 'sale_point/css/cart.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -10,13 +10,36 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-        <div class="container-medium">
-            {% for item in cart %}
-                {{item}}
+<section>
+    <div class="container">
+        <div class="title">
+            <h1>Votre panier</h1>
+        </div>
+    </div>
+    <div class="container-medium">
+        <div class="row justify-content-center">
+            {% for this_object in objects %}
+            <div class="container-object">
+                <div class="left">
+                    <img class="object-img" src="../../{{this_object.image}}" alt="image-photo">
+                </div>
+                <div class="right">
+                    <div class="object-title">{{this_object.name}}</div>
+                    <div class="object-buy">
+                    <p class="price">{{this_object.price|floatformat:2}}$ cad</p> 
+                    </div>
+                </div>
+                <div class="rm">
+                    <a href="">
+                        <img class="object-img" src="{% static 'sale_point/img/x-solid.svg' %}" alt="image-photo">
+                    </a>
+                    
+                </div>
+            </div>
             {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}
 
 {% block script %}
