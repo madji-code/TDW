@@ -1,5 +1,5 @@
 .object-table {
-  height: 16em;
+  height: 20em;
   width: 12em;
   border: 2px solid black;
   margin: 2em auto;
@@ -11,13 +11,22 @@
   text-transform: uppercase;
   display: flex;
   justify-content: flex-end;
+  font-weight: bold;
+}
+.object-table .object-middle {
+  border-top: 2px solid whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+  margin: 0.75em 0;
+  padding: 0.8em 0;
+  display: flex;
+  justify-content: center;
 }
 .object-table .object-img {
-  width: 100%;
+  width: 80%;
 }
 .object-table .object-bottom {
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.15em;
 }
 
 @media screen and (max-width: 576px) {
@@ -25,4 +34,7 @@
     height: 24em;
     width: 20em;
   }
+}
+.object-table:hover {
+  border: 3px solid orange;
 }/*# sourceMappingURL=view-objects.css.map */

@@ -8,8 +8,11 @@
 
     .left {
         background-color: #19535F;
+        display: flex;
+        justify-content: center;
         .object-img {
-            width: 100%;
+            object-fit:cover;
+            max-width: 100%;
         }
     }
 
