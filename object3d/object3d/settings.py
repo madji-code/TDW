@@ -158,3 +158,8 @@ SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
 # Set a reasonable session timeout
 SESSION_COOKIE_AGE = 3600  # 1 hour (adjust as needed)
+
+# STRIPE
+STRIPE_PUBLIC_KEY = "pk_test_51NzzOvDCkqhLuRjxSG50KWosvbsuzzRba6PSQk2JiV5ObDdqQe56h7RW1xe7Qs9o9xdZm5wwePURnUL6oB7i7c0U008nsC1PsK"
+STRIPE_SECRET_KEY = "sk_test_51NzzOvDCkqhLuRjxS5YxxE4c5LLSJuteXz4itw9iTSAtMF2r4nAvGkmrjQhvkYaXMKAOaKAOAmWeVNcWR7hSJVVK00cfubvIkM"
+STRIPE_WEBHOOK_SECRET = ""
