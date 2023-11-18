@@ -1,0 +1,37 @@
+{% extends "../model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'sale_point/css/view-products.css' %}">
+{% endblock %}
+
+{% block title %}
+    Boutique
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                {% for product in all_products %}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <a href="{% url 'sale_point:view-this-product' id=product.id %}">
+                        <div class="object-table">
+                            <div class="object-top">{{product.get_display_price|floatformat:2}}$ cad</div>
+                            <div class="object-middle">
+                                <img class="object-img" src="../../{{product.image}}" alt="image-photo">
+                            </div>
+                            <div class="object-bottom">{{product.name}}</div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'sale_point/js/view-products.js' %}"></script>
+{% endblock %}
+

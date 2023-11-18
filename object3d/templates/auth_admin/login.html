@@ -1,0 +1,30 @@
+{% extends "../model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'auth_admin/css/create-account.css' %}">
+{% endblock %}
+
+{% block title %}
+    Connexion
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-medium">
+            <div class="form-group">
+                <form action="{% url 'auth_admin:login_user' next=back_page %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-outline-primary" type="submit" value="Créer votre compte">
+                    <p><br>Vous n'avez pas de compte? <a class="redirect" href="{% url 'auth_admin:register' next='sale_point:home' %}">Créez-vous un compte.</a></p>
+                </form> 
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+

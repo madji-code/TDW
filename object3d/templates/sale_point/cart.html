@@ -1,0 +1,49 @@
+{% extends "../model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'sale_point/css/cart.css' %}">
+{% endblock %}
+
+{% block title %}
+    Panier
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="title">
+            <h1>Votre panier</h1>
+        </div>
+    </div>
+    <div class="container-medium">
+        <div class="row justify-content-center">
+            {% for item in products %}
+            <div class="container-object">
+                <div class="left">
+                    <img class="object-img" src="../../{{item.product.image}}" alt="image-photo">
+                </div>
+                <div class="right">
+                    <div class="object-title">{{item.product.name}}</div>
+                    <div class="object-buy">
+                    <p class="price">{{item.product.get_display_price|floatformat:2}}$ cad</p>
+                    <p class="qnt">{{item.quantity}} items</p>
+                    </div>
+                </div>
+                <div class="rm">
+                    <a href="{% url 'sale_point:delete-from-cart' item.product.id %}">
+                        <img class="object-img" src="{% static 'sale_point/img/x-solid.svg' %}" alt="image-photo">
+                    </a>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+

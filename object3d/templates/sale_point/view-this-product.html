@@ -1,0 +1,47 @@
+{% extends "../model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'sale_point/css/view-this-product.css' %}">
+{% endblock %}
+
+{% block title %}
+    Object_name
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-medium">
+            <div class="row container-object">
+                <div class="left col-md-12 col-lg-6">
+                    <img class="object-img" src="../../{{this_product.image}}" alt="image-photo">
+                </div>
+                <div class="right col-md-12 col-lg-6">
+                    <div class="object-title">{{this_product.name}}</div>
+                    <div class="object-description">
+                        <h3>Description:</h3>
+                        <p>{{this_product.description}}</p>
+                    </div>
+                    <div class="object-dimensions">Dimension: {{this_product.dimension}}</div>
+                    <div class="object-buy">
+                        <p class="price">{{this_product.get_display_price|floatformat:2}}$ cad</p>
+                        <div class="options">
+                            <form class="cbtn" action="{% url 'sale_point:create-checkout-session' this_product.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-success">Acheter maintenant</button>
+                            </form>
+                            <form class="cbtn" action="{% url 'sale_point:add-to-cart' product_id=this_product.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

@@ -1,0 +1,33 @@
+.container-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.container-box .box {
+  height: 20em;
+  width: 48%;
+  margin: 1.5em 0;
+  border: 2px solid black;
+}
+.container-box .shop {
+  width: 100%;
+  background-image: url("https://media.sketchfab.com/models/89b549eae8cc40039ca2e6ad36b4fdde/thumbnails/78c9db9c71424eb697b1d015c89856e5/352b3c62d31f4c00bb68f91c48a1832a.jpeg");
+  background-size: contain;
+}
+.container-box .source {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5oHCINz-uDGEGPwW9kC_OK-NQJolp0lV5Dw&usqp=CAU");
+  background-size: contain;
+}
+.container-box .space {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIlTIwDfbtLWviQVrKUjPkhAovDwHPZDLlsw&usqp=CAU");
+  background-size: cover;
+}
+
+.box-title {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5em;
+  background-color: black;
+  color: whitesmoke;
+  font-size: 1.4em;
+}/*# sourceMappingURL=home.css.map */

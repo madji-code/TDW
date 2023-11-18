@@ -1,0 +1,20 @@
+{% extends "../model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="% static 'sale_point/css/cart.css' %">
+{% endblock %}
+
+{% block title %}
+Checkout canceled
+{% endblock %}
+
+{% block content %}
+<section>
+    <p>Forgot to add something to your cart? <a href="{% url 'sale_point:landing' %}">Try again</a></p>
+</section>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

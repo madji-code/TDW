@@ -134,13 +134,21 @@ USE_I18N = True
 USE_TZ = True
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'madji.corp@gmail.com'
+EMAIL_HOST_PASSWORD = 'urpu ujpw tptd oryq'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'sale_point/static'),
     ]
 STATIC_ROOT = 'static_root'
 
@@ -162,4 +170,4 @@ SESSION_COOKIE_AGE = 3600  # 1 hour (adjust as needed)
 # STRIPE
 STRIPE_PUBLIC_KEY = "pk_test_51NzzOvDCkqhLuRjxSG50KWosvbsuzzRba6PSQk2JiV5ObDdqQe56h7RW1xe7Qs9o9xdZm5wwePURnUL6oB7i7c0U008nsC1PsK"
 STRIPE_SECRET_KEY = "sk_test_51NzzOvDCkqhLuRjxS5YxxE4c5LLSJuteXz4itw9iTSAtMF2r4nAvGkmrjQhvkYaXMKAOaKAOAmWeVNcWR7hSJVVK00cfubvIkM"
-STRIPE_WEBHOOK_SECRET = ""
+STRIPE_WEBHOOK_SECRET = "whsec_50f45464a9aa8e96ce669c943fabdbc14504d69b3df127aa76a7fccc08ca19c5"

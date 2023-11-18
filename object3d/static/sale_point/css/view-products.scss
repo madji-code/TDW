@@ -1,0 +1,48 @@
+.object-table {
+    height: 20em;
+    width: 12em;
+    border: 2px solid black;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #19535F;
+    color: white;
+
+    .object-top {
+        text-transform: uppercase;
+        display: flex;
+        justify-content: flex-end;
+        font-weight: bold;
+    }
+
+    .object-middle {
+        border-top: 2px solid whitesmoke;
+        border-bottom: 2px solid whitesmoke;
+        margin: .75em 0;
+        padding: .8em 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .object-img {
+        width: 80%;
+    }
+
+    .object-bottom {
+        font-weight: 300;
+        font-size: 1.15em;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    
+    .object-table {
+        height: 24em;
+        width: 20em;
+    }
+}
+
+.object-table:hover {
+    border: 3px solid orange;
+}
+
+

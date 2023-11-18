@@ -1,0 +1,44 @@
+{% extends "../model.html" %}
+{% load static %}
+
+{% block source %}
+    <link rel="stylesheet" href="{% static 'sale_point/css/add-to-cart-success.css' %}">
+{% endblock %}
+
+{% block title %}
+    Object_name
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-medium">
+            <div class="row justify-content-center">
+                <div class="container-object col-md-10 col-lg-8">
+                    <div class="left">
+                        <img class="object-img" src="../../{{this_object.image}}" alt="image-photo">
+                    </div>
+                    <div class="middle">
+                        <div class="object-title">{{this_object.name}}</div>
+                        <div class="object-description">
+                            <p>{{this_object.description}}</p>
+                        </div>
+                        <div class="object-dimensions">{{this_object.name}} - {{this_object.dimension}}</div>
+                        <div class="object-buy">
+                        <p class="price">{{this_object.get_display_price|floatformat:2}}$ cad</p> 
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p>Added to cart</p>
+                        <div class="success">
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

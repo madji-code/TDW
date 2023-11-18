@@ -1,0 +1,63 @@
+.container-medium {
+  display: flex;
+  justify-content: center;
+}
+
+.container-object {
+  border: 2px solid black;
+}
+.container-object .left {
+  background-color: #19535F;
+  display: flex;
+  justify-content: center;
+}
+.container-object .left .object-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+}
+.container-object .right {
+  padding: 2em;
+  overflow-y: scroll;
+}
+.container-object .right .object-title, .container-object .right .object-description, .container-object .right .object-dimensions {
+  margin: 1.5em 0;
+}
+.container-object .right .object-title {
+  display: inline-block;
+  font-size: 1.6em;
+}
+.container-object .right .object-title::after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 0.15em;
+  background-color: black;
+  border-radius: 5em;
+  margin: 0.2em auto 0;
+}
+.container-object .right .object-description {
+  width: 100%;
+  background-color: #d3d0cb;
+  padding: 1em 2em;
+  border: 0.2em solid #9FB1BC;
+}
+.container-object .right .object-description h3 {
+  font-weight: 100;
+}
+.container-object .right .object-buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.container-object .right .object-buy .price {
+  display: block;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+}
+.container-object .right .object-buy .options .cbtn button {
+  margin: 0.5em 1em 0.5em 0;
+  font-size: 1.2em;
+}/*# sourceMappingURL=view-this-product.css.map */

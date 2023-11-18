@@ -31,16 +31,15 @@ class RegisterForm(ModelForm):
         super(RegisterForm, self).clean()
          
         # extract the username and text field from the data
-        self.username = self.cleaned_data.get('username')
         self.email = self.cleaned_data.get('email')
         self.password = self.cleaned_data.get('password')
         rpassword =  self.cleaned_data.get('rpassword')
 
  
         # conditions to be met for the username length
-        if len(self.username) < 5:
-            self._errors['username'] = self.error_class([
-                'Minimum 5 characters required'])
+        # if len(self.username) < 5:
+        #     self._errors['username'] = self.error_class([
+        #         'Minimum 5 characters required'])
             
         if self.password != rpassword:
             self._errors['password'] = self.error_class([
@@ -50,7 +49,7 @@ class RegisterForm(ModelForm):
         return self.cleaned_data
     
     def save(self, commit=True):
-        new_user = User(username=self.username, email=self.email, password=make_password(self.password))
+        new_user = User(email=self.email, password=make_password(self.password))
         if commit:
             new_user.save()
         return new_user
